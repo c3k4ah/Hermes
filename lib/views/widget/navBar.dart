@@ -43,11 +43,11 @@ class _NavbarState extends State<Navbar> {
               ),
               GButton(
                 icon: LineIcons.heart,
-                text: 'Likes',
+                text: 'Favoris',
               ),
               GButton(
-                icon: LineIcons.search,
-                text: 'Search',
+                icon: LineIcons.briefcase,
+                text: 'Offres',
               ),
               GButton(
                 icon: LineIcons.user,
