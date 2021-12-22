@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hermes/views/widget/navBar.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -6,9 +7,8 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Text("data"),
-      ),
+      body: Container(),
+      bottomNavigationBar: Navbar(),
     );
   }
 }
