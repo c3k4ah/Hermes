@@ -5,7 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hermes/colors.dart';
+import 'package:hermes/views/widget/navBar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
@@ -42,7 +44,7 @@ class ConnectPage extends StatelessWidget {
                             topLeft: Radius.circular(50),
                             topRight: Radius.circular(50),
                           )),
-                      height: Get.height * .4,
+                      height: Get.height * .43,
                       width: Get.width,
                       child: Column(
                         children: [
@@ -138,11 +140,25 @@ class ConnectPage extends StatelessWidget {
                               Get.toNamed('/home');
                             },
                             color: redBlood,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text("Vous n'avez pas de compte ?",
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                              TextButton(
+                                onPressed: () {
+                                  Get.toNamed('/inscript');
+                                },
+                                child: Text("S'inscrire", style: TextStyle()),
+                              )
+                            ],
                           )
                         ],
                       )),
                   Positioned(
-                    bottom: Get.height * .30,
+                    bottom: Get.height * .32,
                     child: SvgPicture.asset(
                       'assets/img/Login.svg',
                       width: Get.width * .90,
