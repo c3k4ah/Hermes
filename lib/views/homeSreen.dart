@@ -24,7 +24,7 @@ class Home extends StatelessWidget {
               ),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 IconButton(
-                  icon: Icon(LineIcons.cog, color: redBlood),
+                  icon: Icon(LineIcons.userCog, color: redBlood),
                   onPressed: () {},
                 ),
                 Text(
@@ -46,13 +46,6 @@ class Home extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: darkSecond,
                   borderRadius: BorderRadius.circular(50),
-                  /*boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 5),
-                  blurRadius: 10,
-                  color: white,
-                ),
-              ],*/
                 ),
                 child: Row(
                   children: <Widget>[
@@ -99,7 +92,9 @@ class Home extends StatelessWidget {
                         color: white,
                         size: 25,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        // Get.toNamed('/connect');
+                      },
                     ),
                   ],
                 ),

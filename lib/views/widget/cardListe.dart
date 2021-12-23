@@ -111,15 +111,26 @@ class CardGM extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CircleAvatar(
-                backgroundColor: redBlood.withOpacity(.3),
-                radius: 30,
+              MaterialButton(
+                onPressed: () {},
+                minWidth: 40,
+                height: 50,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50.0),
+                  side: BorderSide(color: Colors.red, width: 2),
+                ),
                 child: Icon(
-                  LineIcons.building,
+                  LineIcons.thumbsUp,
                   size: 35,
-                  color: dark,
+                  color: white,
                 ),
               ),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    LineIcons.link,
+                    color: white,
+                  )),
               Text(
                 "Il y a 15 minutes",
                 style: TextStyle(color: white.withOpacity(.5)),
@@ -127,7 +138,7 @@ class CardGM extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 5,
+            height: 10,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

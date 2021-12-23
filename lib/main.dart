@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hermes/views/connexion.dart';
 import 'package:hermes/views/homeSreen.dart';
 import 'package:hermes/views/splash.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 3000), () {
-      Get.offNamed('/home');
+      Get.offNamed('/connect');
     });
     return GetMaterialApp(
         theme: ThemeData(
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => SplashScreen(),
+          '/connect': (context) => ConnectPage(),
           '/home': (context) => Home(),
         });
   }
