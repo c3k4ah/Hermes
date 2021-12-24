@@ -62,16 +62,11 @@ class _InscriptPageState extends State<InscriptPage> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            /*Positioned(
-              top: Get.height * .1,
-              child: Center(
-                child: Text(
-                  "SIGN UP",
-                  style: TextStyle(fontSize: 45, color: white),
-                ),
-              ),
-            ),*/
+            Container(
+              height: Get.height * .15,
+            ),
             Container(
                 decoration: BoxDecoration(
                     color: white,
@@ -79,13 +74,10 @@ class _InscriptPageState extends State<InscriptPage> {
                       topLeft: Radius.circular(50),
                       topRight: Radius.circular(50),
                     )),
-                height: Get.height,
+                height: Get.height * .77,
                 width: Get.width,
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: Get.height * .02,
-                    ),
                     Center(
                       child: Text(
                         "Créer un compte",
@@ -100,9 +92,11 @@ class _InscriptPageState extends State<InscriptPage> {
                     ),
                     Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.symmetric(horizontal: 30.0),
+                      margin:
+                          EdgeInsets.only(left: 11.0, right: 11.0, bottom: 10),
                       padding: EdgeInsets.symmetric(horizontal: 20.0),
                       height: 55,
+                      width: Get.width * .85,
                       decoration: BoxDecoration(
                         color: darkSecond,
                         borderRadius: BorderRadius.circular(50),
@@ -131,14 +125,13 @@ class _InscriptPageState extends State<InscriptPage> {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 15,
-                    ),
                     Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.symmetric(horizontal: 30.0),
+                      margin:
+                          EdgeInsets.only(left: 11.0, right: 11.0, bottom: 10),
                       padding: EdgeInsets.symmetric(horizontal: 20.0),
                       height: 55,
+                      width: Get.width * .85,
                       decoration: BoxDecoration(
                         color: darkSecond,
                         borderRadius: BorderRadius.circular(50),
@@ -169,8 +162,8 @@ class _InscriptPageState extends State<InscriptPage> {
                     ),
                     Container(
                         alignment: Alignment.center,
-                        margin: EdgeInsets.symmetric(
-                            horizontal: 11.0, vertical: 15),
+                        margin: EdgeInsets.only(
+                            left: 11.0, right: 11.0, bottom: 10),
                         padding: EdgeInsets.symmetric(horizontal: 20.0),
                         height: 55,
                         width: Get.width,
@@ -208,7 +201,7 @@ class _InscriptPageState extends State<InscriptPage> {
                         )),
                     Container(
                       margin:
-                          EdgeInsets.symmetric(horizontal: 11.0, vertical: 5),
+                          EdgeInsets.only(left: 11.0, right: 11.0, bottom: 10),
                       height: 55,
                       width: Get.width * .85,
                       decoration: BoxDecoration(
@@ -222,7 +215,7 @@ class _InscriptPageState extends State<InscriptPage> {
                             height: 55,
                             width: Get.width * .5,
                             decoration: BoxDecoration(
-                              border: Border.all(color: dark, width: 2.5),
+                              border: Border.all(color: darkSecond, width: 2.5),
                               color: white,
                               borderRadius: BorderRadius.circular(50),
                             ),
@@ -266,11 +259,20 @@ class _InscriptPageState extends State<InscriptPage> {
                       ),
                     ),
                     Container(
-                        padding: EdgeInsets.all(10),
-                        height: 150,
-                        width: Get.width * .9,
-                        child: Center(
-                            child: TextField(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.only(
+                          left: 11.0,
+                          right: 11.0, /* bottom: 10*/
+                        ),
+                        //padding: EdgeInsets.symmetric(horizontal: 15.0),
+                        decoration: BoxDecoration(
+                          color: redBlood,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        //padding: EdgeInsets.all(10),
+                        height: 55,
+                        width: Get.width * .85,
+                        child: TextField(
                           controller:
                               dateinput, //editing controller of this TextField
                           decoration: InputDecoration(
@@ -319,7 +321,7 @@ class _InscriptPageState extends State<InscriptPage> {
                               print("Date is not selected");
                             }
                           },
-                        ))),
+                        )),
                     SizedBox(
                       height: 20,
                     ),
@@ -328,7 +330,7 @@ class _InscriptPageState extends State<InscriptPage> {
                       minWidth: Get.width * .7,
                       textColor: white,
                       child: Text(
-                        "Login",
+                        "Sign up",
                         style: TextStyle(fontSize: 25),
                       ),
                       splashColor: dark,
