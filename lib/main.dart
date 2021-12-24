@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:hermes/views/connexion.dart';
 import 'package:hermes/views/homeSreen.dart';
 import 'package:hermes/views/inscription.dart';
+import 'package:hermes/views/notification.dart';
 import 'package:hermes/views/splash.dart';
 
 void main() {
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => SplashScreen(),
           '/connect': (context) => ConnectPage(),
           '/inscript': (context) => InscriptPage(),
+          '/notif': (context) => NotifIcation(),
           '/home': (context) => Home(),
         });
   }

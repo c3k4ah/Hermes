@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hermes/colors.dart';
 import 'package:line_icons/line_icons.dart';
@@ -63,6 +64,35 @@ class _NavbarState extends State<Navbar> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class Appbar extends StatelessWidget implements PreferredSizeWidget {
+  const Appbar({Key? key}) : super(key: key);
+  @override
+  Size get preferredSize => const Size.fromHeight(55);
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      elevation: 0,
+      backgroundColor: dark,
+      leading: IconButton(
+        icon: Icon(LineIcons.userCog, color: redBlood),
+        onPressed: () {},
+      ),
+      actions: [
+        IconButton(
+          icon: Icon(LineIcons.bell, color: redBlood),
+          onPressed: () {
+            Get.toNamed('/notif');
+          },
+        ),
+        IconButton(
+          icon: Icon(LineIcons.sms, color: redBlood),
+          onPressed: () {},
+        ),
+      ],
     );
   }
 }

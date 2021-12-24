@@ -14,6 +14,7 @@ class Home extends StatelessWidget {
   ) {
     return Scaffold(
       backgroundColor: dark,
+      appBar: Appbar(),
       body: Container(
         height: Get.height,
         child: SingleChildScrollView(
@@ -22,21 +23,8 @@ class Home extends StatelessWidget {
               SizedBox(
                 height: Get.height * .03,
               ),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                IconButton(
-                  icon: Icon(LineIcons.userCog, color: redBlood),
-                  onPressed: () {},
-                ),
-                Text(
-                  "Hermès",
-                  style: TextStyle(fontSize: 22, color: redBlood),
-                ),
-                IconButton(
-                  icon: Icon(LineIcons.sms, color: redBlood),
-                  onPressed: () {},
-                ),
-              ]),
-              SizedBox(height: Get.height * .025),
+
+              //SizedBox(height: Get.height * .025),
               /**bar de rechercher */
               Container(
                 alignment: Alignment.center,
