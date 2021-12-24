@@ -76,6 +76,7 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0,
+      shadowColor: dark,
       backgroundColor: dark,
       leading: IconButton(
         icon: Icon(LineIcons.userCog, color: redBlood),
@@ -90,7 +91,9 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
         ),
         IconButton(
           icon: Icon(LineIcons.sms, color: redBlood),
-          onPressed: () {},
+          onPressed: () {
+            Get.toNamed('/chat');
+          },
         ),
       ],
     );

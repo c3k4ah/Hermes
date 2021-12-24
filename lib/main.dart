@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hermes/views/chat.dart';
+import 'package:hermes/views/chat_room.dart';
 import 'package:hermes/views/connexion.dart';
 import 'package:hermes/views/homeSreen.dart';
 import 'package:hermes/views/inscription.dart';
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 3000), () {
-      Get.offNamed('/connect');
+      Get.offNamed('/chat');
     });
     return GetMaterialApp(
         theme: ThemeData(
@@ -31,6 +33,8 @@ class MyApp extends StatelessWidget {
           '/inscript': (context) => InscriptPage(),
           '/notif': (context) => NotifIcation(),
           '/home': (context) => Home(),
+          '/chat': (context) => Chat(),
+          '/chatRoom': (context) => CHatRoom()
         });
   }
 }
