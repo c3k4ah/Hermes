@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hermes/colors.dart';
 import 'package:hermes/views/widget/navBar.dart';
+import 'package:line_icons/line_icons.dart';
 
 class NotifIcation extends StatelessWidget {
   const NotifIcation({Key? key}) : super(key: key);
@@ -73,9 +74,21 @@ class CardNotif extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          CircleAvatar(
-            radius: 35,
-            backgroundColor: white,
+          Container(
+            height: 70,
+            width: 70,
+            decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(50),
+                border: Border.all(
+                  width: 2,
+                  color: redBlood,
+                )),
+            child: Icon(
+              LineIcons.bell,
+              color: redBlood,
+              size: 30,
+            ),
           ),
           SizedBox(
             width: 25,

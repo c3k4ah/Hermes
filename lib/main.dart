@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 3000), () {
-      Get.offNamed('/chat');
+      Get.offNamed('/chatRoom');
     });
     return GetMaterialApp(
         theme: ThemeData(
