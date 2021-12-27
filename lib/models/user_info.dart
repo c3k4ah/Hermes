@@ -42,3 +42,19 @@ class Publication {
   Publication(this.type, this.titre, this.name, this.contenue, this.times,
       this.nbrLikes, this.lien);
 }
+
+class Diplome {
+  final titre;
+  final date;
+  final lieu;
+
+  Diplome(this.titre, this.date, this.lieu);
+}
+
+class Exp {
+  final titreExp;
+  final dateExp;
+  final lieuExp;
+
+  Exp(this.titreExp, this.dateExp, this.lieuExp);
+}
