@@ -61,7 +61,7 @@ class UserInfo extends StatelessWidget {
               children: [
                 ListTile(
                   leading: Icon(
-                    LineIcons.at,
+                    LineIcons.envelope,
                     color: redBlood,
                   ),
                   title: Text(
@@ -104,7 +104,7 @@ class UserInfo extends StatelessWidget {
                     color: redBlood,
                   ),
                   title: Text(
-                    "masculin",
+                    "Masculin",
                     style: TextStyle(
                         fontSize: 20,
                         color: white,
