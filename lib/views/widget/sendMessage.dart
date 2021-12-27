@@ -10,6 +10,7 @@ class Send extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: Get.width,
       height: 60,
       color: dark,
       child: Row(

@@ -20,9 +20,12 @@ class _CHatRoomState extends State<CHatRoom> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: dark,
-        elevation: 0,
+        elevation: 8,
+        shadowColor: blancCasse,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.back();
+          },
           icon: Icon(
             LineIcons.angleLeft,
             color: white,
@@ -34,8 +37,18 @@ class _CHatRoomState extends State<CHatRoom> {
               alignment: Alignment.centerLeft,
               child: Row(
                 children: [
-                  CircleAvatar(
-                    backgroundColor: redBlood,
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: ExactAssetImage('assets/img/user.jpeg'),
+                        ),
+                        border: Border.all(
+                          width: 2,
+                          color: blueAccentDark,
+                        ),
+                        borderRadius: BorderRadius.circular(50)),
                   ),
                   SizedBox(
                     width: 10,
@@ -63,9 +76,12 @@ class _CHatRoomState extends State<CHatRoom> {
         ],
       ),
       body: Container(
+        height: Get.height,
+        width: Get.width,
+        color: dark,
         child: Stack(
           children: [
-            Message(),
+            Container(alignment: Alignment.topCenter, child: Message()),
             Container(alignment: Alignment.bottomCenter, child: Send())
           ],
         ),
@@ -80,9 +96,6 @@ class Message extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.topCenter,
-      width: Get.width,
-      height: Get.height * .9,
       color: dark,
       child: SingleChildScrollView(
         child: Column(
@@ -110,7 +123,24 @@ class Message extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Container(
+                  height: 50,
+                  width: 50,
+                  margin: EdgeInsets.only(
+                    top: 20,
+                  ),
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: ExactAssetImage('assets/img/user.jpeg'),
+                      ),
+                      border: Border.all(
+                        width: 2,
+                        color: blueAccentDark,
+                      ),
+                      borderRadius: BorderRadius.circular(50)),
+                ),
                 Container(
                     margin: EdgeInsets.only(top: 20, left: 15),
                     width: Get.width * .55,
@@ -118,17 +148,15 @@ class Message extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: darkSecond,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(35),
+                        bottomLeft: Radius.circular(35),
                         bottomRight: Radius.circular(45),
                         topRight: Radius.circular(45),
                       ),
                     ),
                     child: Center(
-                      child: Expanded(
-                        child: Text(
-                            "Salut! Je suis Anne, je suis interéssé pas votre profile ",
-                            style: TextStyle(color: white, fontSize: 20)),
-                      ),
+                      child: Text(
+                          "Salut! Je suis Dom, je suis interéssé par votre offre ",
+                          style: TextStyle(color: white, fontSize: 20)),
                     )),
               ],
             ),
