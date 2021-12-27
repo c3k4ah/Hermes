@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hermes/colors.dart';
+import 'package:hermes/views/widget/pop_user_info.dart';
 import 'package:line_icons/line_icons.dart';
 
 class UserInfo extends StatelessWidget {
@@ -191,7 +192,14 @@ class UserInfo extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        barrierColor: Colors.transparent,
+                        builder: (BuildContext context) {
+                          return Experience();
+                        });
+                  },
                   leading: Icon(
                     LineIcons.hardHat,
                     color: redBlood,
