@@ -138,7 +138,14 @@ class UserInfo extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        barrierColor: Colors.transparent,
+                        builder: (BuildContext context) {
+                          return Expe();
+                        });
+                  },
                   leading: Icon(
                     LineIcons.toolbox,
                     color: redBlood,
@@ -156,9 +163,16 @@ class UserInfo extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        barrierColor: Colors.transparent,
+                        builder: (BuildContext context) {
+                          return Diplo();
+                        });
+                  },
                   leading: Icon(
-                    LineIcons.graduationCap,
+                    LineIcons.userGraduate,
                     color: redBlood,
                   ),
                   title: Text(
@@ -174,7 +188,14 @@ class UserInfo extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        barrierColor: Colors.transparent,
+                        builder: (BuildContext context) {
+                          return CV();
+                        });
+                  },
                   leading: Icon(
                     LineIcons.folderOpen,
                     color: redBlood,
@@ -187,7 +208,7 @@ class UserInfo extends StatelessWidget {
                         fontWeight: FontWeight.w300),
                   ),
                   trailing: Icon(
-                    LineIcons.download,
+                    LineIcons.angleRight,
                     color: redBlood,
                   ),
                 ),
@@ -197,7 +218,7 @@ class UserInfo extends StatelessWidget {
                         context: context,
                         barrierColor: Colors.transparent,
                         builder: (BuildContext context) {
-                          return Experience();
+                          return Projet();
                         });
                   },
                   leading: Icon(
