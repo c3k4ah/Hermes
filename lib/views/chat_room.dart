@@ -68,7 +68,10 @@ class _CHatRoomState extends State<CHatRoom> {
               return [
                 PopupMenuItem(child: Text("Marquer comme non lu")),
                 PopupMenuItem(
-                  child: Text("Voir profile"),
+                  child: Text("Voir profil"),
+                  onTap: () {
+                    Get.toNamed('/UserProfile');
+                  },
                 )
               ];
             },

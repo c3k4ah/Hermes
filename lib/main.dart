@@ -7,6 +7,7 @@ import 'package:hermes/views/homeSreen.dart';
 import 'package:hermes/views/inscription.dart';
 import 'package:hermes/views/notification.dart';
 import 'package:hermes/views/splash.dart';
+import 'package:hermes/views/user_profil.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 3000), () {
-      Get.offNamed('/chatRoom');
+      Get.offNamed('/UserProfil');
     });
     return GetMaterialApp(
         theme: ThemeData(
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
           '/notif': (context) => NotifIcation(),
           '/home': (context) => Home(),
           '/chat': (context) => Chat(),
-          '/chatRoom': (context) => CHatRoom()
+          '/chatRoom': (context) => CHatRoom(),
+          '/UserProfil': (context) => UserInfo(),
         });
   }
 }
