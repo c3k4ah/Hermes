@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 3000), () {
-      Get.offNamed('/UserProfil');
+      Get.offNamed('/home');
     });
     return GetMaterialApp(
         theme: ThemeData(

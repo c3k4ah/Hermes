@@ -1,245 +1,232 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hermes/colors.dart';
+
 import 'package:hermes/views/widget/pop_user_info.dart';
 import 'package:line_icons/line_icons.dart';
 
-class UserInfo extends StatelessWidget {
+class UserInfo extends StatefulWidget {
   const UserInfo({Key? key}) : super(key: key);
 
   @override
+  State<UserInfo> createState() => _UserInfoState();
+}
+
+class _UserInfoState extends State<UserInfo> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: dark,
+      /*appBar: AppBar(
         backgroundColor: dark,
-        appBar: AppBar(
-          backgroundColor: dark,
-          elevation: 0,
-          leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: Icon(
-              LineIcons.angleLeft,
-              color: white,
-            ),
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(
+            LineIcons.angleLeft,
+            color: white,
           ),
         ),
-        body: SingleChildScrollView(
-            child: Column(
-          children: [
-            Center(
-              child: Container(
-                height: Get.height * .25,
-                width: Get.width * .5,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: ExactAssetImage('assets/img/user.jpeg'),
-                    ),
-                    border: Border.all(
-                      width: 5,
-                      color: blueAccentDark,
-                    ),
-                    borderRadius: BorderRadius.circular(100)),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(20),
-              child: Text(
-                "DOMINICK Randriamanantena Grégoire",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 25, color: white),
-              ),
-            ),
-            Container(
-              height: 7,
-              width: Get.width * .95,
+      ),*/
+      body: SingleChildScrollView(
+          child: Column(
+        children: [
+          Center(
+            child: Container(
+              height: Get.height * .20,
+              width: Get.width * .34,
               decoration: BoxDecoration(
-                  color: redBlood.withOpacity(.15),
+                  image: DecorationImage(
+                    image: ExactAssetImage('assets/img/user.jpeg'),
+                  ),
+                  border: Border.all(
+                    width: 5,
+                    color: blueAccentDark,
+                  ),
                   borderRadius: BorderRadius.circular(100)),
             ),
-            Column(
-              children: [
-                ListTile(
-                  leading: Icon(
-                    LineIcons.envelope,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "dominick17@gmail.com",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            child: Text(
+              "DOMINICK Randriamanantena Grégoire",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 23, color: white),
+            ),
+          ),
+          Container(
+            height: 7,
+            width: Get.width * .95,
+            decoration: BoxDecoration(
+                color: redBlood.withOpacity(.15),
+                borderRadius: BorderRadius.circular(100)),
+          ),
+          Column(
+            children: [
+              ListTile(
+                leading: Icon(
+                  LineIcons.envelope,
+                  color: redBlood,
                 ),
-                ListTile(
-                  leading: Icon(
-                    LineIcons.phone,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "034 44 599 16",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
+                title: Text(
+                  "dominick17@gmail.com",
+                  style: TextStyle(
+                      fontSize: 20, color: white, fontWeight: FontWeight.w300),
                 ),
-                ListTile(
-                  leading: Icon(
-                    LineIcons.campground,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "Antananrive, Madagascar",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
+              ),
+              ListTile(
+                leading: Icon(
+                  LineIcons.phone,
+                  color: redBlood,
                 ),
-                ListTile(
-                  leading: Icon(
-                    LineIcons.male,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "Masculin",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
+                title: Text(
+                  "034 44 599 16",
+                  style: TextStyle(
+                      fontSize: 20, color: white, fontWeight: FontWeight.w300),
                 ),
-                ListTile(
-                  leading: Icon(
-                    LineIcons.birthdayCake,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "17 Janvier 1999",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
+              ),
+              ListTile(
+                leading: Icon(
+                  LineIcons.campground,
+                  color: redBlood,
                 ),
-                ListTile(
-                  leading: Icon(
-                    LineIcons.addressCard,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "Étudiant",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
+                title: Text(
+                  "Antananrive, Madagascar",
+                  style: TextStyle(
+                      fontSize: 20, color: white, fontWeight: FontWeight.w300),
                 ),
-                ListTile(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        barrierColor: Colors.transparent,
-                        builder: (BuildContext context) {
-                          return Expe();
-                        });
-                  },
-                  leading: Icon(
-                    LineIcons.toolbox,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "Expérience",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                  trailing: Icon(
-                    LineIcons.angleRight,
-                    color: redBlood,
-                  ),
+              ),
+              ListTile(
+                leading: Icon(
+                  LineIcons.male,
+                  color: redBlood,
                 ),
-                ListTile(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        barrierColor: Colors.transparent,
-                        builder: (BuildContext context) {
-                          return Diplo();
-                        });
-                  },
-                  leading: Icon(
-                    LineIcons.userGraduate,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "Diplôme et cértificat",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                  trailing: Icon(
-                    LineIcons.angleRight,
-                    color: redBlood,
-                  ),
+                title: Text(
+                  "Masculin",
+                  style: TextStyle(
+                      fontSize: 20, color: white, fontWeight: FontWeight.w300),
                 ),
-                ListTile(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        barrierColor: Colors.transparent,
-                        builder: (BuildContext context) {
-                          return CV();
-                        });
-                  },
-                  leading: Icon(
-                    LineIcons.folderOpen,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "CV",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                  trailing: Icon(
-                    LineIcons.angleRight,
-                    color: redBlood,
-                  ),
+              ),
+              ListTile(
+                leading: Icon(
+                  LineIcons.birthdayCake,
+                  color: redBlood,
                 ),
-                ListTile(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        barrierColor: Colors.transparent,
-                        builder: (BuildContext context) {
-                          return Projet();
-                        });
-                  },
-                  leading: Icon(
-                    LineIcons.hardHat,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "Compte pour les projets",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                  trailing: Icon(
-                    LineIcons.angleRight,
-                    color: redBlood,
-                  ),
+                title: Text(
+                  "17 Janvier 1999",
+                  style: TextStyle(
+                      fontSize: 20, color: white, fontWeight: FontWeight.w300),
                 ),
-              ],
-            )
-          ],
-        )));
+              ),
+              ListTile(
+                leading: Icon(
+                  LineIcons.addressCard,
+                  color: redBlood,
+                ),
+                title: Text(
+                  "Étudiant",
+                  style: TextStyle(
+                      fontSize: 20, color: white, fontWeight: FontWeight.w300),
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      barrierColor: Colors.transparent,
+                      builder: (BuildContext context) {
+                        return Expe();
+                      });
+                },
+                leading: Icon(
+                  LineIcons.toolbox,
+                  color: redBlood,
+                ),
+                title: Text(
+                  "Expérience",
+                  style: TextStyle(
+                      fontSize: 20, color: white, fontWeight: FontWeight.w300),
+                ),
+                trailing: Icon(
+                  LineIcons.angleRight,
+                  color: redBlood,
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      barrierColor: Colors.transparent,
+                      builder: (BuildContext context) {
+                        return Diplo();
+                      });
+                },
+                leading: Icon(
+                  LineIcons.userGraduate,
+                  color: redBlood,
+                ),
+                title: Text(
+                  "Diplôme et cértificat",
+                  style: TextStyle(
+                      fontSize: 20, color: white, fontWeight: FontWeight.w300),
+                ),
+                trailing: Icon(
+                  LineIcons.angleRight,
+                  color: redBlood,
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      barrierColor: Colors.transparent,
+                      builder: (BuildContext context) {
+                        return CV();
+                      });
+                },
+                leading: Icon(
+                  LineIcons.folderOpen,
+                  color: redBlood,
+                ),
+                title: Text(
+                  "CV",
+                  style: TextStyle(
+                      fontSize: 20, color: white, fontWeight: FontWeight.w300),
+                ),
+                trailing: Icon(
+                  LineIcons.angleRight,
+                  color: redBlood,
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      barrierColor: Colors.transparent,
+                      builder: (BuildContext context) {
+                        return Projet();
+                      });
+                },
+                leading: Icon(
+                  LineIcons.hardHat,
+                  color: redBlood,
+                ),
+                title: Text(
+                  "Compte pour les projets",
+                  style: TextStyle(
+                      fontSize: 20, color: white, fontWeight: FontWeight.w300),
+                ),
+                trailing: Icon(
+                  LineIcons.angleRight,
+                  color: redBlood,
+                ),
+              ),
+            ],
+          )
+        ],
+      )),
+    );
   }
 }

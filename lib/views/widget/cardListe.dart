@@ -10,7 +10,7 @@ class CardPM extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 15),
+      margin: EdgeInsets.symmetric(horizontal: 10),
       padding: EdgeInsets.only(top: 10, left: 15, right: 15),
       width: 150,
       height: 10,
@@ -99,7 +99,7 @@ class CardGM extends StatelessWidget {
             Color(0xFF212B47),
             Color(0xFF254657),
           ])),
-      margin: EdgeInsets.only(top: 0, left: 15, right: 15, bottom: 20),
+      margin: EdgeInsets.only(top: 0, left: 20, right: 20, bottom: 15),
       padding: EdgeInsets.all(15),
       height: Get.height * .32,
       width: Get.width,
@@ -117,7 +117,7 @@ class CardGM extends StatelessWidget {
                 height: 50,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50.0),
-                  side: BorderSide(color: Colors.red, width: 2),
+                  side: BorderSide(color: redBlood, width: 2),
                 ),
                 child: Icon(
                   LineIcons.thumbsUp,

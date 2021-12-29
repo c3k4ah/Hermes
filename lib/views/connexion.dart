@@ -7,6 +7,7 @@ import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hermes/colors.dart';
+import 'package:hermes/views/homeSreen.dart';
 import 'package:hermes/views/widget/navBar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
@@ -137,7 +138,7 @@ class ConnectPage extends StatelessWidget {
                               side: BorderSide(color: Colors.red),
                             ),
                             onPressed: () {
-                              Get.toNamed('/home');
+                              Get.offAll(Home());
                             },
                             color: redBlood,
                           ),

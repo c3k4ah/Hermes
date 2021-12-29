@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hermes/colors.dart';
+import 'package:hermes/views/user_profil.dart';
 import 'package:hermes/views/widget/cardListe.dart';
 import 'package:hermes/views/widget/navBar.dart';
 import 'package:line_icons/line_icons.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+int _selectedIndex = 0;
+final _pageActuel = [PageAcceuil(), UserInfo()];
+
+class _HomeState extends State<Home> {
   @override
   Widget build(
     BuildContext context,
@@ -15,116 +25,178 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: dark,
       appBar: Appbar(),
-      body: Container(
-        height: Get.height,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: Get.height * .03,
-              ),
-
-              //SizedBox(height: Get.height * .025),
-              /**bar de rechercher */
-              Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.symmetric(horizontal: 30.0),
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                height: 50,
-                decoration: BoxDecoration(
-                  color: darkSecond,
-                  borderRadius: BorderRadius.circular(50),
+      body: _pageActuel[_selectedIndex],
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: dark,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.black.withOpacity(.1),
+            )
+          ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 7),
+            child: GNav(
+              rippleColor: Colors.grey[300]!,
+              hoverColor: Colors.grey[100]!,
+              gap: 5,
+              activeColor: white,
+              iconSize: 24,
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+              duration: Duration(milliseconds: 400),
+              tabBackgroundColor: redBlood,
+              color: redBlood,
+              /*tabActiveBorder:
+                Border.all(color: redBlood, width: 3), */
+              tabs: [
+                GButton(
+                  icon: LineIcons.home,
+                  text: 'Home',
                 ),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: TextField(
-                        onChanged: (value) {},
-                        style: TextStyle(color: white),
-                        decoration: InputDecoration(
-                          hintText: "Recherche",
-                          hintStyle: TextStyle(
-                            color: redBlood,
-                          ),
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          suffixIcon: Icon(
-                            Icons.search,
-                            color: white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                GButton(
+                  icon: LineIcons.heart,
+                  text: 'Favoris',
                 ),
-              ),
-              /**favoris */
-              Container(
-                margin: EdgeInsets.all(20),
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                height: 35,
-                decoration: BoxDecoration(
-                    color: redBlood.withOpacity(.1),
-                    borderRadius: BorderRadius.circular(50)),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Offres récent",
-                      style: TextStyle(color: white, fontSize: 17),
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        LineIcons.list,
-                        color: white,
-                        size: 25,
-                      ),
-                      onPressed: () {
-                        // Get.toNamed('/connect');
-                      },
-                    ),
-                  ],
+                GButton(
+                  icon: LineIcons.briefcase,
+                  text: 'Offres',
                 ),
-              ),
-              /**liste offre */
-              SizedBox(
-                height: Get.height * .005,
-              ),
-              Container(
-                width: Get.width,
-                height: 120,
-                child: ListView.builder(
-                    itemCount: 10,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index) {
-                      return CardPM();
-                    }),
-              ),
-              /**publcation */
-              Container(
-                margin: EdgeInsets.all(10),
-                height: 10,
-                decoration: BoxDecoration(
-                    color: redBlood.withOpacity(.1),
-                    borderRadius: BorderRadius.circular(50)),
-              ),
-              Container(
-                //color: white,
-                width: Get.width,
-                height: Get.height,
-                child: ListView.builder(
-                    itemCount: 10,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (BuildContext context, int index) {
-                      return CardGM();
-                    }),
-              ),
-            ],
+                GButton(
+                  icon: LineIcons.user,
+                  text: 'Profile',
+                  onPressed: () {},
+                ),
+              ],
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+            ),
           ),
         ),
       ),
-      bottomNavigationBar: Navbar(),
+    );
+  }
+}
+
+class PageAcceuil extends StatelessWidget {
+  const PageAcceuil({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: Get.height,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: Get.height * .015,
+            ),
+
+            //SizedBox(height: Get.height * .025),
+            /**bar de rechercher */
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.symmetric(horizontal: 30.0),
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              height: 50,
+              decoration: BoxDecoration(
+                color: darkSecond,
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: TextField(
+                      onChanged: (value) {},
+                      style: TextStyle(color: white),
+                      decoration: InputDecoration(
+                        hintText: "Recherche",
+                        hintStyle: TextStyle(
+                          color: redBlood,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                        suffixIcon: Icon(
+                          Icons.search,
+                          color: white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            /**favoris */
+            Container(
+              margin: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              height: 35,
+              decoration: BoxDecoration(
+                  color: redBlood.withOpacity(.1),
+                  borderRadius: BorderRadius.circular(50)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Offres récent",
+                    style: TextStyle(color: white, fontSize: 17),
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      LineIcons.list,
+                      color: white,
+                      size: 25,
+                    ),
+                    onPressed: () {
+                      // Get.toNamed('/connect');
+                    },
+                  ),
+                ],
+              ),
+            ),
+            /**liste offre */
+            SizedBox(
+              height: Get.height * .005,
+            ),
+            Container(
+              width: Get.width,
+              height: 120,
+              child: ListView.builder(
+                  itemCount: 10,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    return CardPM();
+                  }),
+            ),
+            /**publcation */
+            Container(
+              margin: EdgeInsets.all(10),
+              height: 10,
+              decoration: BoxDecoration(
+                  color: redBlood.withOpacity(.1),
+                  borderRadius: BorderRadius.circular(50)),
+            ),
+            Container(
+              //color: white,
+              width: Get.width,
+              height: Get.height,
+              child: ListView.builder(
+                  itemCount: 10,
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (BuildContext context, int index) {
+                    return CardGM();
+                  }),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
