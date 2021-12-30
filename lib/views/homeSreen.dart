@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hermes/colors.dart';
+import 'package:hermes/views/favoris.dart';
+import 'package:hermes/views/offres.dart';
 import 'package:hermes/views/user_profil.dart';
 import 'package:hermes/views/widget/cardListe.dart';
 import 'package:hermes/views/widget/navBar.dart';
@@ -15,7 +17,7 @@ class Home extends StatefulWidget {
 }
 
 int _selectedIndex = 0;
-final _pageActuel = [PageAcceuil(), UserInfo()];
+final _pageActuel = [PageAcceuil(), FavorisPage(), OffrePage(), UserInfo()];
 
 class _HomeState extends State<Home> {
   @override
@@ -167,6 +169,7 @@ class PageAcceuil extends StatelessWidget {
             ),
             Container(
               width: Get.width,
+              margin: EdgeInsets.symmetric(horizontal: 3),
               height: 120,
               child: ListView.builder(
                   itemCount: 10,

@@ -85,6 +85,100 @@ class CardPM extends StatelessWidget {
   }
 }
 
+class CardFavoris extends StatelessWidget {
+  const CardFavoris({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 7, horizontal: 15),
+      padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+      height: 150,
+      decoration: BoxDecoration(
+          //color: darkSecond,
+          border: Border.all(color: redBlood, width: 2),
+          //color: darkSecond,
+          borderRadius: BorderRadius.circular(15)),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "BOCASAY recruting",
+            style: TextStyle(
+                color: white, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+          Row(
+            children: [
+              Container(
+                /*height: 150,
+                width: 100,*/
+                child: Expanded(
+                  child: Text(
+                    "Poste de développeur fornt-end, chez bocasay. Le développeur se charge de l'interface de l'application et son integration",
+                    overflow: TextOverflow.fade,
+                    style: TextStyle(color: white),
+                  ),
+                ),
+              ),
+              Container(
+                //height: double.infinity,
+                //height: Get.height*,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 45,
+                      width: 45,
+                      child: Card(
+                        //width: Get.width,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        color: darkSecond,
+
+                        child: Icon(
+                          LineIcons.timesCircle,
+                          color: redBlood,
+                          size: 30,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 45,
+                      width: 45,
+                      child: Card(
+                        //width: Get.width,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        color: darkSecond,
+
+                        child: Icon(
+                          LineIcons.plusCircle,
+                          color: redBlood,
+                          size: 30,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+          Text(
+            "Il y a 15 minutes",
+            textAlign: TextAlign.left,
+            style: TextStyle(color: white.withOpacity(.5)),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class CardGM extends StatelessWidget {
   const CardGM({Key? key}) : super(key: key);
 

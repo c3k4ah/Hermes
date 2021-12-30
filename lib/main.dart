@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:hermes/views/chat.dart';
 import 'package:hermes/views/chat_room.dart';
 import 'package:hermes/views/connexion.dart';
+import 'package:hermes/views/favoris.dart';
 import 'package:hermes/views/homeSreen.dart';
 import 'package:hermes/views/inscription.dart';
 import 'package:hermes/views/notification.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
           '/chat': (context) => Chat(),
           '/chatRoom': (context) => CHatRoom(),
           '/UserProfil': (context) => UserInfo(),
+          '/favoris': (context) => FavorisPage()
         });
   }
 }
