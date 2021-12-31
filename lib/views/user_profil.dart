@@ -29,8 +29,8 @@ class _UserInfoState extends State<UserInfo> {
                 ),
                 Center(
                   child: Container(
-                    height: Get.height * .17,
-                    width: Get.width * .34,
+                    height: 150,
+                    width: 150,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                           image: ExactAssetImage('assets/img/user.jpeg'),
@@ -51,11 +51,80 @@ class _UserInfoState extends State<UserInfo> {
                   ),
                 ),
                 Container(
+                  margin: EdgeInsets.all(7),
                   height: 10,
                   width: Get.width * .95,
                   decoration: BoxDecoration(
                       color: redBlood.withOpacity(.15),
                       borderRadius: BorderRadius.circular(15)),
+                ),
+                Container(
+                  width: Get.width,
+                  height: 60,
+                  color: dark,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.symmetric(horizontal: 7),
+                        padding: EdgeInsets.symmetric(horizontal: 20.0),
+                        //height: 50,
+                        width: Get.width * .82,
+                        decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(50),
+                            border: Border.all(
+                              width: 2,
+                              color: redBlood,
+                            )),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Expanded(
+                              child: TextField(
+                                onChanged: (value) {},
+                                style: TextStyle(color: white),
+                                decoration: InputDecoration(
+                                  hintText: "envoyer un message à dominick ...",
+                                  hintStyle: TextStyle(
+                                    color: white.withOpacity(.5),
+                                  ),
+                                  enabledBorder: InputBorder.none,
+                                  focusedBorder: InputBorder.none,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      MaterialButton(
+                          height: 40,
+                          minWidth: Get.width * .1,
+                          color: redBlood,
+                          onPressed: () {},
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25)),
+                          child: Icon(
+                            LineIcons.paperPlane,
+                            color: white,
+                          )),
+                    ],
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: darkSecond.withOpacity(.3),
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                  padding: EdgeInsets.all(7),
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Publication récent",
+                    //textAlign: TextAlign.start,
+                    style: TextStyle(fontSize: 23, color: white),
+                  ),
                 ),
                 Container(
                   color: dark,
@@ -93,6 +162,7 @@ class _DargleState extends State<Dargle> {
       minChildSize: 0.1,
       builder: (BuildContext context, ScrollController scrollController) {
         return Container(
+          margin: EdgeInsets.only(top: 8),
           decoration: BoxDecoration(
               color: dark,
               borderRadius: BorderRadius.only(
