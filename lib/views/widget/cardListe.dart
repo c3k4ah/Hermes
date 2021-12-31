@@ -193,10 +193,10 @@ class CardGM extends StatelessWidget {
             Color(0xFF212B47),
             Color(0xFF254657),
           ])),
-      margin: EdgeInsets.only(top: 0, left: 20, right: 20, bottom: 15),
+      margin: EdgeInsets.only(top: 0, left: 10, right: 20, bottom: 15),
       padding: EdgeInsets.all(15),
       height: Get.height * .32,
-      width: Get.width,
+      width: Get.width * .9,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

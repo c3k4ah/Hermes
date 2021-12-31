@@ -14,7 +14,7 @@ class Send extends StatelessWidget implements PreferredSizeWidget {
       height: 60,
       color: dark,
       child: Row(
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         children: [
           IconButton(
               onPressed: () {},
@@ -27,7 +27,7 @@ class Send extends StatelessWidget implements PreferredSizeWidget {
             margin: EdgeInsets.symmetric(horizontal: 7),
             padding: EdgeInsets.symmetric(horizontal: 20.0),
             //height: 50,
-            width: Get.width * .7,
+            width: Get.width * .65,
             decoration: BoxDecoration(
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(50),
@@ -36,6 +36,7 @@ class Send extends StatelessWidget implements PreferredSizeWidget {
                   color: redBlood,
                 )),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Expanded(
                   child: TextField(
@@ -56,7 +57,7 @@ class Send extends StatelessWidget implements PreferredSizeWidget {
           ),
           MaterialButton(
               height: 40,
-              minWidth: 15,
+              minWidth: Get.width * .1,
               color: redBlood,
               onPressed: () {},
               shape: RoundedRectangleBorder(
