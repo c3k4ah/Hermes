@@ -282,7 +282,7 @@ class _UserInfoState extends State<UserInfo> {
                               margin: EdgeInsets.symmetric(horizontal: 7),
                               padding: EdgeInsets.symmetric(horizontal: 20.0),
                               //height: 50,
-                              width: Get.width * .82,
+                              width: Get.width * .8,
                               decoration: BoxDecoration(
                                   color: Colors.transparent,
                                   borderRadius: BorderRadius.circular(50),
@@ -342,7 +342,7 @@ class _UserInfoState extends State<UserInfo> {
                       ),
                       Container(
                         color: dark,
-                        height: Get.height * .775,
+                        height: Get.height * .7,
                         width: Get.width * .95,
                         child: ListView.builder(
                           itemBuilder: (BuildContext context, int index) {

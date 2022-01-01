@@ -166,41 +166,6 @@ class _SettingsState extends State<Settings> {
                                           onChanged: (value) {},
                                           style: TextStyle(color: white),
                                           decoration: InputDecoration(
-                                            hintText: "votre adresse mail",
-                                            hintStyle: TextStyle(
-                                              color: white.withOpacity(.5),
-                                            ),
-                                            enabledBorder: InputBorder.none,
-                                            focusedBorder: InputBorder.none,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.symmetric(
-                                      horizontal: 7, vertical: 10),
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 20.0),
-                                  //height: 50,
-                                  width: Get.width * .82,
-                                  decoration: BoxDecoration(
-                                      color: Colors.transparent,
-                                      borderRadius: BorderRadius.circular(50),
-                                      border: Border.all(
-                                        width: 2,
-                                        color: redBlood,
-                                      )),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: TextField(
-                                          onChanged: (value) {},
-                                          style: TextStyle(color: white),
-                                          decoration: InputDecoration(
                                             hintText: "votre numéro",
                                             hintStyle: TextStyle(
                                               color: white.withOpacity(.5),
