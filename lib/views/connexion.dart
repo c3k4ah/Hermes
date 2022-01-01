@@ -33,7 +33,7 @@ class ConnectPage extends StatelessWidget {
                     top: Get.height * .1,
                     child: Center(
                       child: Text(
-                        "LOGIN",
+                        "SIGN IN",
                         style: TextStyle(fontSize: 45, color: white),
                       ),
                     ),
@@ -129,7 +129,7 @@ class ConnectPage extends StatelessWidget {
                             minWidth: Get.width * .7,
                             textColor: white,
                             child: Text(
-                              "Login",
+                              "Sign In",
                               style: TextStyle(fontSize: 25),
                             ),
                             splashColor: dark,
