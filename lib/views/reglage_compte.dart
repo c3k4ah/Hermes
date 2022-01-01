@@ -35,9 +35,14 @@ class _SettingsState extends State<Settings> {
       appBar: AppBar(
         backgroundColor: dark,
         elevation: 0,
-        leading: Icon(
-          LineIcons.angleLeft,
-          color: redBlood,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(
+            LineIcons.angleLeft,
+            color: redBlood,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -244,13 +249,20 @@ class _SettingsState extends State<Settings> {
                                   ),
                                 ),
                                 Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        borderRadius: BorderRadius.circular(50),
+                                        border: Border.all(
+                                          width: 2,
+                                          color: redBlood,
+                                        )),
                                     alignment: Alignment.center,
-                                    margin: EdgeInsets.only(
-                                        left: 11.0, right: 11.0, bottom: 10),
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: 7, vertical: 10),
                                     padding:
-                                        EdgeInsets.symmetric(horizontal: 20.0),
-                                    height: 55,
-                                    width: Get.width,
+                                        EdgeInsets.symmetric(horizontal: 15.0),
+                                    //height: 55,
+                                    width: Get.width * .82,
                                     child: DropdownButtonFormField<String>(
                                       onChanged: (value) {},
                                       decoration: InputDecoration(
@@ -264,7 +276,7 @@ class _SettingsState extends State<Settings> {
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(90.0)),
                                             borderSide: BorderSide.none),
-                                        hintText: ('Entreprise'),
+                                        hintText: ('Status'),
                                         hintStyle: TextStyle(
                                             color: white.withOpacity(.5)),
                                         prefixIcon: Icon(LineIcons.userTie,
@@ -277,8 +289,8 @@ class _SettingsState extends State<Settings> {
                                       elevation: 16,
                                       style: TextStyle(color: redBlood),
                                       items: <String>[
-                                        'Recruteur',
-                                        'Recherche d\'emploie',
+                                        'Étudiant',
+                                        'Salarié',
                                       ].map<DropdownMenuItem<String>>(
                                           (String value) {
                                         return DropdownMenuItem<String>(
@@ -288,43 +300,25 @@ class _SettingsState extends State<Settings> {
                                       }).toList(),
                                     )),
                                 Container(
-                                  margin: EdgeInsets.only(
-                                      left: 11.0, right: 11.0, bottom: 10),
-                                  height: 55,
-                                  width: Get.width * .85,
+                                  margin: EdgeInsets.symmetric(
+                                      horizontal: 7, vertical: 10),
+                                  //height: 55,
+                                  width: Get.width * .82,
                                   decoration: BoxDecoration(
-                                    color: darkSecond,
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
+                                      color: Colors.transparent,
+                                      borderRadius: BorderRadius.circular(50),
+                                      border: Border.all(
+                                        width: 2,
+                                        color: redBlood,
+                                      )),
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
-                                      Container(
-                                        height: 55,
-                                        width: Get.width * .5,
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                              color: darkSecond, width: 2.5),
-                                          color: white,
-                                          borderRadius:
-                                              BorderRadius.circular(50),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            "Genre :",
-                                            style: TextStyle(
-                                                color: dark,
-                                                fontSize: 25,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ),
-                                      ),
                                       new Text(
-                                        'F',
+                                        'Femme',
                                         style: new TextStyle(
                                           fontSize: 16.0,
-                                          color: white,
+                                          color: white.withOpacity(.5),
                                         ),
                                       ),
                                       new Radio(
@@ -334,10 +328,10 @@ class _SettingsState extends State<Settings> {
                                         onChanged: (value) {},
                                       ),
                                       new Text(
-                                        'M',
+                                        'Homme',
                                         style: new TextStyle(
                                           fontSize: 16.0,
-                                          color: white,
+                                          color: white.withOpacity(.5),
                                         ),
                                       ),
                                       new Radio(
@@ -351,18 +345,19 @@ class _SettingsState extends State<Settings> {
                                 ),
                                 Container(
                                     alignment: Alignment.center,
-                                    margin: EdgeInsets.only(
-                                      left: 11.0,
-                                      right: 11.0, /* bottom: 10*/
-                                    ),
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: 7, vertical: 10),
                                     //padding: EdgeInsets.symmetric(horizontal: 15.0),
                                     decoration: BoxDecoration(
-                                      color: redBlood,
-                                      borderRadius: BorderRadius.circular(50),
-                                    ),
+                                        color: Colors.transparent,
+                                        borderRadius: BorderRadius.circular(50),
+                                        border: Border.all(
+                                          width: 2,
+                                          color: redBlood,
+                                        )),
                                     //padding: EdgeInsets.all(10),
-                                    height: 55,
-                                    width: Get.width * .85,
+                                    //height: 55,
+                                    width: Get.width * .82,
                                     child: TextField(
                                       controller:
                                           dateinput, //editing controller of this TextField
@@ -382,7 +377,8 @@ class _SettingsState extends State<Settings> {
                                           color: white,
                                         ), //icon of text field
                                         labelText: "Date de naissance",
-                                        labelStyle: TextStyle(color: white),
+                                        labelStyle: TextStyle(
+                                            color: white.withOpacity(.5)),
                                         //label text of field
                                       ),
                                       readOnly:

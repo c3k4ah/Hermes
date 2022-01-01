@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:hermes/colors.dart';
-import 'package:hermes/views/user_profil.dart';
 
 // ignore: unused_import
 import 'package:hermes/views/widget/sendMessage.dart';
@@ -38,24 +37,18 @@ class _CHatRoomState extends State<CHatRoom> {
               alignment: Alignment.centerLeft,
               child: Row(
                 children: [
-                  InkWell(
-                    onTap: () {
-                      //Get.toNamed('/UserProfil');
-                      Get.offAll(UserInfo());
-                    },
-                    child: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: ExactAssetImage('assets/img/user.jpeg'),
-                          ),
-                          border: Border.all(
-                            width: 2,
-                            color: blueAccentDark,
-                          ),
-                          borderRadius: BorderRadius.circular(50)),
-                    ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: ExactAssetImage('assets/img/user.jpeg'),
+                        ),
+                        border: Border.all(
+                          width: 2,
+                          color: blueAccentDark,
+                        ),
+                        borderRadius: BorderRadius.circular(50)),
                   ),
                   SizedBox(
                     width: 10,
