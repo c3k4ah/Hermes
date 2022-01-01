@@ -17,7 +17,9 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: dark,
       leading: IconButton(
         icon: Icon(LineIcons.userCog, color: redBlood),
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed('/setting');
+        },
       ),
       actions: [
         IconButton(

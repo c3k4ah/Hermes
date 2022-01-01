@@ -7,6 +7,7 @@ import 'package:hermes/views/favoris.dart';
 import 'package:hermes/views/homeSreen.dart';
 import 'package:hermes/views/inscription.dart';
 import 'package:hermes/views/notification.dart';
+import 'package:hermes/views/reglage_compte.dart';
 import 'package:hermes/views/splash.dart';
 import 'package:hermes/views/user_profil.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 3000), () {
-      Get.offNamed('/UserProfil');
+      Get.offNamed('/home');
     });
     return GetMaterialApp(
         theme: ThemeData(
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
           '/chat': (context) => Chat(),
           '/chatRoom': (context) => CHatRoom(),
           '/UserProfil': (context) => UserInfo(),
-          '/favoris': (context) => FavorisPage()
+          '/favoris': (context) => FavorisPage(),
+          '/setting': (context) => Settings(),
         });
   }
 }
