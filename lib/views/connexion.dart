@@ -17,6 +17,9 @@ class ConnectPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _emailController = new TextEditingController();
+    TextEditingController _passController = new TextEditingController();
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -65,7 +68,10 @@ class ConnectPage extends StatelessWidget {
                               children: <Widget>[
                                 Expanded(
                                   child: TextField(
-                                    onChanged: (value) {},
+                                    controller: _emailController,
+                                    onChanged: (value) {
+                                      value = _emailController.text;
+                                    },
                                     style: TextStyle(color: white),
                                     decoration: InputDecoration(
                                       hintText: "email or number",
@@ -101,7 +107,10 @@ class ConnectPage extends StatelessWidget {
                               children: <Widget>[
                                 Expanded(
                                   child: TextField(
-                                    onChanged: (value) {},
+                                    controller: _passController,
+                                    onChanged: (value) {
+                                      value = _passController.text;
+                                    },
                                     style: TextStyle(color: white),
                                     decoration: InputDecoration(
                                       hintText: "password",
@@ -138,7 +147,9 @@ class ConnectPage extends StatelessWidget {
                               side: BorderSide(color: Colors.red),
                             ),
                             onPressed: () {
-                              Get.offAll(Home());
+                              //Get.offAll(Home());
+                              print(_passController);
+                              print(_emailController);
                             },
                             color: redBlood,
                           ),
@@ -159,7 +170,7 @@ class ConnectPage extends StatelessWidget {
                         ],
                       )),
                   Positioned(
-                    bottom: Get.height * .32,
+                    bottom: Get.height * .33,
                     child: SvgPicture.asset(
                       'assets/img/Login.svg',
                       width: Get.width * .90,
