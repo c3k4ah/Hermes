@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "680373952463",
+    "project_id": "hermes-65512",
+    "storage_bucket": "hermes-65512.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680373952463:android:a7a712bda17342cd5e3cba",
+        "android_client_info": {
+          "package_name": "com.example.hermes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "680373952463-sgleb1eljufcseo5bljb1ksp7lnd10qg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hermes",
+            "certificate_hash": "5f5ff5a1cbd3598a3746916f7a71540d006dc03f"
+          }
+        },
+        {
+          "client_id": "680373952463-e9r45upbqtssmu5e1b03sbdkds1lf6v7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqshc7OV7ejig6r0RGVNOovftnwyt_TDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "680373952463-e9r45upbqtssmu5e1b03sbdkds1lf6v7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

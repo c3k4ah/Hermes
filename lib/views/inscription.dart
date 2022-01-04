@@ -3,7 +3,6 @@
 import 'dart:async';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hermes/colors.dart';
