@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:get/get.dart';
 import 'package:hermes/colors.dart';
+import 'package:hermes/services/authentification.dart';
 import 'package:hermes/views/widget/color_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
@@ -535,9 +536,28 @@ class _SettingsState extends State<Settings> {
                 ),
               ),
             ),
+            SizedBox(
+              child: ListTile(
+                  leading: Icon(
+                    LineIcons.alternateSignOut,
+                    color: redBlood,
+                  ),
+                  title: Text(
+                    "Se déconecter",
+                    style: TextStyle(color: white),
+                  ),
+                  onTap: () {
+                    seDeconnecter(context);
+                  }),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  seDeconnecter(BuildContext context) {
+    Get.back();
+    AuthentiFication().deconexion();
   }
 }

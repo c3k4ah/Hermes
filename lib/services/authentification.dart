@@ -19,6 +19,11 @@ class AuthentiFication {
     return await _auth.signInWithCredential(credential);
   }
 
+//user connecter ou pas
   Stream<User?> get user => _auth.authStateChanges();
-  /**user connecter ou pas */
+  //deconnection
+  Future<void> deconexion() async {
+    await _googleSignIn.signOut();
+    await _auth.signOut();
+  }
 }

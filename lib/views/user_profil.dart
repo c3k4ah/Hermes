@@ -1,4 +1,5 @@
 import 'package:backdrop/backdrop.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hermes/colors.dart';
@@ -6,9 +7,12 @@ import 'package:hermes/views/widget/cardListe.dart';
 
 import 'package:hermes/views/widget/pop_user_info.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:provider/provider.dart';
 
 class UserInformation extends StatefulWidget {
-  const UserInformation({Key? key}) : super(key: key);
+  final User? user;
+  const UserInformation({this.user});
+  //const UserInformation({Key? key}) : super(key: key);
 
   @override
   State<UserInformation> createState() => _UserInformationState();
@@ -17,6 +21,7 @@ class UserInformation extends StatefulWidget {
 class _UserInformationState extends State<UserInformation> {
   @override
   Widget build(BuildContext context) {
+    final _user = Provider.of<User?>(context);
     return Scaffold(
       backgroundColor: dark,
       body: SingleChildScrollView(
@@ -40,7 +45,7 @@ class _UserInformationState extends State<UserInformation> {
             Container(
               margin: EdgeInsets.all(5),
               child: Text(
-                "DOMINICK Randriamanantena Grégoire",
+                _user!.displayName!,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 23, color: white),
               ),
@@ -87,26 +92,31 @@ class _UserInformationState extends State<UserInformation> {
                             color: redBlood,
                           ),
                           title: Text(
-                            "dominick17@gmail.com",
+                            _user.email!,
                             style: TextStyle(
                                 fontSize: 20,
                                 color: white,
                                 fontWeight: FontWeight.w300),
                           ),
                         ),
-                        ListTile(
-                          leading: Icon(
-                            LineIcons.phone,
-                            color: redBlood,
+                        if (_user.phoneNumber == null)
+                          (Container(
+                            child: null,
+                          ))
+                        else
+                          ListTile(
+                            leading: Icon(
+                              LineIcons.phone,
+                              color: redBlood,
+                            ),
+                            title: Text(
+                              "034 44 599 16",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: white,
+                                  fontWeight: FontWeight.w300),
+                            ),
                           ),
-                          title: Text(
-                            "034 44 599 16",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: white,
-                                fontWeight: FontWeight.w300),
-                          ),
-                        ),
                         ListTile(
                           leading: Icon(
                             LineIcons.campground,
