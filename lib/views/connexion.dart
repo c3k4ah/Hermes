@@ -147,8 +147,8 @@ class ConnectPage extends StatelessWidget {
                             ),
                             onPressed: () {
                               //Get.offAll(Home());
-                              print(_passController);
-                              print(_emailController);
+                              //print(_passController);
+                              //print(_emailController);
                             },
                             color: redBlood,
                           ),

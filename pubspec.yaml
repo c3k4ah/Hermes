@@ -39,6 +39,8 @@ dependencies:
   get: ^4.6.1
   firebase_auth: ^3.3.4
   firebase_core: ^1.10.6
+  google_sign_in: ^5.2.1
+  provider: 
   
 
 dev_dependencies:

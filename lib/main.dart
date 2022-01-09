@@ -1,5 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hermes/services/authentification.dart';
+import 'package:provider/provider.dart';
+
 import 'package:hermes/views/chat.dart';
 import 'package:hermes/views/chat_room.dart';
 import 'package:hermes/views/connexion.dart';
@@ -11,8 +15,18 @@ import 'package:hermes/views/reglage_compte.dart';
 import 'package:hermes/views/splash.dart';
 import 'package:hermes/views/user_profil.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
+  runApp(
+    MultiProvider(
+      providers: [
+        StreamProvider.value(value: AuthentiFication().user, initialData: null)
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
