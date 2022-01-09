@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hermes/services/authentification.dart';
+import 'package:hermes/views/transition.dart';
 import 'package:provider/provider.dart';
 
 import 'package:hermes/views/chat.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 3000), () {
-      Get.offNamed('/connect');
+      Get.offNamed('/transition');
     });
     return GetMaterialApp(
         theme: ThemeData(
@@ -52,9 +53,10 @@ class MyApp extends StatelessWidget {
           '/home': (context) => Home(),
           '/chat': (context) => Chat(),
           '/chatRoom': (context) => CHatRoom(),
-          '/UserProfil': (context) => UserInfo(),
+          '/UserProfil': (context) => UserInformation(),
           '/favoris': (context) => FavorisPage(),
           '/setting': (context) => Settings(),
+          '/transition': (context) => Transit()
         });
   }
 }

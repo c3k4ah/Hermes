@@ -7,14 +7,14 @@ import 'package:hermes/views/widget/cardListe.dart';
 import 'package:hermes/views/widget/pop_user_info.dart';
 import 'package:line_icons/line_icons.dart';
 
-class UserInfo extends StatefulWidget {
-  const UserInfo({Key? key}) : super(key: key);
+class UserInformation extends StatefulWidget {
+  const UserInformation({Key? key}) : super(key: key);
 
   @override
-  State<UserInfo> createState() => _UserInfoState();
+  State<UserInformation> createState() => _UserInformationState();
 }
 
-class _UserInfoState extends State<UserInfo> {
+class _UserInformationState extends State<UserInformation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

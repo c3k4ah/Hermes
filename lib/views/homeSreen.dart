@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -8,6 +9,7 @@ import 'package:hermes/views/user_profil.dart';
 import 'package:hermes/views/widget/cardListe.dart';
 import 'package:hermes/views/widget/navBar.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -17,16 +19,22 @@ class Home extends StatefulWidget {
 }
 
 int _selectedIndex = 0;
-final _pageActuel = [PageAcceuil(), FavorisPage(), OffrePage(), UserInfo()];
+final _pageActuel = [
+  PageAcceuil(),
+  FavorisPage(),
+  OffrePage(),
+  UserInformation()
+];
 
 class _HomeState extends State<Home> {
   @override
   Widget build(
     BuildContext context,
   ) {
+    final _user = Provider.of<User?>(context);
     return Scaffold(
       backgroundColor: dark,
-      appBar: Appbar(),
+      appBar: Appbar(user: _user),
       body: _pageActuel[_selectedIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
