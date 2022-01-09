@@ -1,19 +1,21 @@
-// ignore_for_file: unused_import
-
-import 'dart:async';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:hermes/colors.dart';
-import 'package:hermes/views/homeSreen.dart';
-import 'package:hermes/views/widget/navBar.dart';
-import 'package:line_icons/line_icons.dart';
-import 'package:rounded_loading_button/rounded_loading_button.dart';
 
-class ConnectPage extends StatelessWidget {
+import 'package:hermes/colors.dart';
+import 'package:hermes/services/authentification.dart';
+
+import 'package:line_icons/line_icons.dart';
+
+class ConnectPage extends StatefulWidget {
   ConnectPage({Key? key}) : super(key: key);
 
+  @override
+  State<ConnectPage> createState() => _ConnectPageState();
+}
+
+class _ConnectPageState extends State<ConnectPage> {
+  bool connexionEnCours = false;
   @override
   Widget build(BuildContext context) {
     TextEditingController _emailController = new TextEditingController();
@@ -132,26 +134,26 @@ class ConnectPage extends StatelessWidget {
                           SizedBox(
                             height: 20,
                           ),
-                          MaterialButton(
-                            height: 50,
-                            minWidth: Get.width * .7,
-                            textColor: white,
-                            child: Text(
-                              "Sign In",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            splashColor: dark,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50.0),
-                              side: BorderSide(color: Colors.red),
-                            ),
-                            onPressed: () {
-                              //Get.offAll(Home());
-                              //print(_passController);
-                              //print(_emailController);
-                            },
-                            color: redBlood,
-                          ),
+                          connexionEnCours
+                              ? Center(
+                                  child: CircularProgressIndicator(),
+                                )
+                              : MaterialButton(
+                                  height: 50,
+                                  minWidth: Get.width * .7,
+                                  textColor: white,
+                                  child: Text(
+                                    "Sign In",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  splashColor: dark,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(50.0),
+                                    side: BorderSide(color: Colors.red),
+                                  ),
+                                  onPressed: () => connexion(),
+                                  color: redBlood,
+                                ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -183,5 +185,12 @@ class ConnectPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  connexion() {
+    setState(() {
+      connexionEnCours = true;
+      AuthentiFication().identficationGoogle();
+    });
   }
 }
