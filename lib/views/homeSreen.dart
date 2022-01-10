@@ -155,18 +155,16 @@ class PageAcceuil extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Offres récent",
+                    "Ajouter une publication",
                     style: TextStyle(color: white, fontSize: 17),
                   ),
                   IconButton(
                     icon: Icon(
-                      LineIcons.list,
+                      LineIcons.plusSquare,
                       color: white,
                       size: 25,
                     ),
-                    onPressed: () {
-                      // Get.toNamed('/connect');
-                    },
+                    onPressed: () {},
                   ),
                 ],
               ),
