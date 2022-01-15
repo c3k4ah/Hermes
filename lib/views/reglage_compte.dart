@@ -25,7 +25,7 @@ class _SettingsState extends State<Settings> {
 
   TextEditingController dateinput = TextEditingController();
 
-  late String textChange;
+  String textChange = "Add file";
   //text editing controller for text field
 
   @override
@@ -103,11 +103,8 @@ class _SettingsState extends State<Settings> {
                     "Ajouter un CV",
                     style: TextStyle(color: white),
                   ),
-                  onTap: () {
-                    setState(() {
-                      textChange = 'Add file';
-                    });
-                    showDialog(
+                  onTap: () async {
+                    await showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
@@ -152,6 +149,7 @@ class _SettingsState extends State<Settings> {
                                         file == null
                                             ? selectFile()
                                             : uploadFile();
+                                        textChange = 'Save';
                                       });
                                     },
                                     color: redBlood,
@@ -161,6 +159,7 @@ class _SettingsState extends State<Settings> {
                             ),
                           );
                         });
+                    //setState(() {});
                   }),
             ),
             SizedBox(
