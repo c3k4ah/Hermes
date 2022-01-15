@@ -1,10 +1,13 @@
+import 'dart:io';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:hermes/models/firebaseData.dart';
+import 'package:path/path.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-// ignore: unused_import
 import 'package:get/get.dart';
 import 'package:hermes/colors.dart';
 import 'package:hermes/services/authentification.dart';
 import 'package:hermes/views/widget/color_picker.dart';
-import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
 
 class Settings extends StatefulWidget {
@@ -16,10 +19,13 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   Color currentColor = dark;
-
+  File? file;
+  UploadTask? task;
   int _genre = 0;
 
   TextEditingController dateinput = TextEditingController();
+
+  late String textChange;
   //text editing controller for text field
 
   @override
@@ -31,6 +37,7 @@ class _SettingsState extends State<Settings> {
   void changeColor(Color color) => setState(() => currentColor = color);
   @override
   Widget build(BuildContext context) {
+    final nomDuFichier = file != null ? basename(file!.path) : 'Aucun fichier';
     return Scaffold(
       backgroundColor: dark,
       appBar: AppBar(
@@ -85,6 +92,76 @@ class _SettingsState extends State<Settings> {
                   ),
                 ),
               ),
+            ),
+            SizedBox(
+              child: ListTile(
+                  leading: Icon(
+                    LineIcons.folderPlus,
+                    color: redBlood,
+                  ),
+                  title: Text(
+                    "Ajouter un CV",
+                    style: TextStyle(color: white),
+                  ),
+                  onTap: () {
+                    setState(() {
+                      textChange = 'Add file';
+                    });
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Center(
+                              child: Text(
+                                "Cirucilum Vitae",
+                                style: TextStyle(fontSize: 20, color: redBlood),
+                              ),
+                            ),
+                            backgroundColor: darkSecond,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            content: Container(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.all(15),
+                                    child: Text(
+                                      nomDuFichier,
+                                      style:
+                                          TextStyle(fontSize: 15, color: white),
+                                    ),
+                                  ),
+                                  /**------------------------------ */
+                                  MaterialButton(
+                                    height: 50,
+                                    minWidth: 150,
+                                    textColor: white,
+                                    child: Text(
+                                      textChange,
+                                      style: TextStyle(fontSize: 25),
+                                    ),
+                                    splashColor: dark,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(50.0),
+                                      side: BorderSide(color: Colors.red),
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        file == null
+                                            ? selectFile()
+                                            : uploadFile();
+                                      });
+                                    },
+                                    color: redBlood,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        });
+                  }),
             ),
             SizedBox(
               child: ListTile(
@@ -309,77 +386,7 @@ class _SettingsState extends State<Settings> {
                                     ],
                                   ),
                                 ),
-                                Container(
-                                    alignment: Alignment.center,
-                                    margin: EdgeInsets.symmetric(
-                                        horizontal: 7, vertical: 10),
-                                    //padding: EdgeInsets.symmetric(horizontal: 15.0),
-                                    decoration: BoxDecoration(
-                                        color: Colors.transparent,
-                                        borderRadius: BorderRadius.circular(50),
-                                        border: Border.all(
-                                          width: 2,
-                                          color: redBlood,
-                                        )),
-                                    //padding: EdgeInsets.all(10),
-                                    //height: 55,
-                                    width: Get.width * .82,
-                                    child: TextField(
-                                      controller:
-                                          dateinput, //editing controller of this TextField
-                                      decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor: darkSecond,
-                                        border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(90.0)),
-                                            borderSide: BorderSide.none),
-                                        focusedBorder: UnderlineInputBorder(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(90.0)),
-                                            borderSide: BorderSide.none),
-                                        prefixIcon: Icon(
-                                          LineIcons.calendar,
-                                          color: white,
-                                        ), //icon of text field
-                                        labelText: "Date de naissance",
-                                        labelStyle: TextStyle(
-                                            color: white.withOpacity(.5)),
-                                        //label text of field
-                                      ),
-                                      readOnly:
-                                          true, //set it true, so that user will not able to edit text
-                                      onTap: () async {
-                                        DateTime? pickedDate =
-                                            await showDatePicker(
-                                                context: context,
-                                                initialDate: DateTime.now(),
-                                                firstDate: DateTime(
-                                                    2000), //DateTime.now() - not to allow to choose before today.
-                                                lastDate: DateTime(2101));
 
-                                        if (pickedDate != null) {
-                                          print(
-                                              pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
-                                          String formattedDate =
-                                              DateFormat('yyyy-MM-dd')
-                                                  .format(pickedDate);
-                                          print(
-                                              formattedDate); //formatted date output using intl package =>  2021-03-16
-                                          //you can implement different kind of Date Format here according to your requirement
-
-                                          setState(() {
-                                            dateinput.text =
-                                                formattedDate; //set output date to TextField value.
-                                          });
-                                        } else {
-                                          print("Date is not selected");
-                                        }
-                                      },
-                                    )),
-                                SizedBox(
-                                  height: 20,
-                                ),
                                 /**------------------------------ */
                                 MaterialButton(
                                   height: 50,
@@ -559,5 +566,25 @@ class _SettingsState extends State<Settings> {
   seDeconnecter(BuildContext context) {
     Get.back();
     AuthentiFication().deconexion();
+  }
+
+  Future selectFile() async {
+    final selected = await FilePicker.platform.pickFiles(allowMultiple: false);
+
+    if (selected == null) return;
+
+    final path = selected.files.single.path!;
+
+    setState(() => file = File(path));
+  }
+
+  Future uploadFile() async {
+    if (file == null) return;
+
+    final fileSelected = basename(file!.path);
+
+    final cheminFireBase = 'fichiers/$fileSelected';
+
+    FirebaseData.uploiding(cheminFireBase, file!);
   }
 }

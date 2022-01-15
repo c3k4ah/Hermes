@@ -164,7 +164,122 @@ class PageAcceuil extends StatelessWidget {
                       color: white,
                       size: 25,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              backgroundColor: darkSecond,
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              content: Container(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Container(
+                                      alignment: Alignment.center,
+
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 20.0),
+                                      //height: 50,
+                                      width: Get.width * .82,
+                                      decoration: BoxDecoration(
+                                          color: Colors.transparent,
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          border: Border.all(
+                                            width: 2,
+                                            color: redBlood,
+                                          )),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          Expanded(
+                                            child: TextField(
+                                              onChanged: (value) {},
+                                              style: TextStyle(color: white),
+                                              decoration: InputDecoration(
+                                                hintText: " Titre",
+                                                hintStyle: TextStyle(
+                                                  color: white.withOpacity(.5),
+                                                ),
+                                                enabledBorder: InputBorder.none,
+                                                focusedBorder: InputBorder.none,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    Container(
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 20.0),
+                                      //height: 50,
+                                      width: Get.width * .82,
+                                      height: 150,
+                                      decoration: BoxDecoration(
+                                          color: Colors.transparent,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          border: Border.all(
+                                            width: 2,
+                                            color: redBlood,
+                                          )),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          Expanded(
+                                            child: TextField(
+                                              onChanged: (value) {},
+                                              style: TextStyle(
+                                                color: white,
+                                              ),
+                                              decoration: InputDecoration(
+                                                hintText: "Description",
+                                                hintStyle: TextStyle(
+                                                  color: white.withOpacity(.5),
+                                                ),
+                                                enabledBorder: InputBorder.none,
+                                                focusedBorder: InputBorder.none,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+
+                                    /**------------------------------ */
+                                    MaterialButton(
+                                      height: 50,
+                                      minWidth: 150,
+                                      textColor: white,
+                                      child: Text(
+                                        "Save",
+                                        style: TextStyle(fontSize: 25),
+                                      ),
+                                      splashColor: dark,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(50.0),
+                                        side: BorderSide(color: Colors.red),
+                                      ),
+                                      onPressed: () {},
+                                      color: redBlood,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          });
+                    },
                   ),
                 ],
               ),

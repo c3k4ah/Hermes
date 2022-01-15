@@ -151,7 +151,10 @@ class _ConnectPageState extends State<ConnectPage> {
                                     borderRadius: BorderRadius.circular(50.0),
                                     side: BorderSide(color: Colors.red),
                                   ),
-                                  onPressed: () => connexion(),
+                                  onPressed: () {
+                                    connexion();
+                                    //Get.toNamed('/home');
+                                  },
                                   color: redBlood,
                                 ),
                           Row(

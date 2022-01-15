@@ -45,6 +45,8 @@ dependencies:
   cloud_firestore_web: ^2.6.6
   firebase_storage: ^10.2.5
   file_picker: ^4.3.1
+  flutter_document_picker: ^4.0.1
+  
   
 
 dev_dependencies:

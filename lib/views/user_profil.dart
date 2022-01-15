@@ -42,14 +42,19 @@ class _UserInformationState extends State<UserInformation> {
                     borderRadius: BorderRadius.circular(100)),
               ),
             ),
-            Container(
-              margin: EdgeInsets.all(5),
-              child: Text(
-                _user!.displayName!,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 23, color: white),
+            if (_user!.displayName == null)
+              (Container(
+                child: Text("data", style: TextStyle(color: white)),
+              ))
+            else
+              Container(
+                margin: EdgeInsets.all(5),
+                child: Text(
+                  _user.displayName!,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 23, color: white),
+                ),
               ),
-            ),
             Container(
               margin: EdgeInsets.all(7),
               height: 10,
@@ -86,19 +91,24 @@ class _UserInformationState extends State<UserInformation> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        ListTile(
-                          leading: Icon(
-                            LineIcons.envelope,
-                            color: redBlood,
+                        if (_user.email == null)
+                          (Container(
+                            child: Text("data", style: TextStyle(color: white)),
+                          ))
+                        else
+                          ListTile(
+                            leading: Icon(
+                              LineIcons.envelope,
+                              color: redBlood,
+                            ),
+                            title: Text(
+                              _user.email!,
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: white,
+                                  fontWeight: FontWeight.w300),
+                            ),
                           ),
-                          title: Text(
-                            _user.email!,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: white,
-                                fontWeight: FontWeight.w300),
-                          ),
-                        ),
                         if (_user.phoneNumber == null)
                           (Container(
                             child: null,
@@ -145,19 +155,6 @@ class _UserInformationState extends State<UserInformation> {
                         ),
                         ListTile(
                           leading: Icon(
-                            LineIcons.birthdayCake,
-                            color: redBlood,
-                          ),
-                          title: Text(
-                            "17 Janvier 1999",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: white,
-                                fontWeight: FontWeight.w300),
-                          ),
-                        ),
-                        ListTile(
-                          leading: Icon(
                             LineIcons.addressCard,
                             color: redBlood,
                           ),
@@ -167,56 +164,6 @@ class _UserInformationState extends State<UserInformation> {
                                 fontSize: 20,
                                 color: white,
                                 fontWeight: FontWeight.w300),
-                          ),
-                        ),
-                        ListTile(
-                          onTap: () {
-                            showDialog(
-                                context: context,
-                                barrierColor: Colors.transparent,
-                                builder: (BuildContext context) {
-                                  return Expe();
-                                });
-                          },
-                          leading: Icon(
-                            LineIcons.toolbox,
-                            color: redBlood,
-                          ),
-                          title: Text(
-                            "Expérience",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: white,
-                                fontWeight: FontWeight.w300),
-                          ),
-                          trailing: Icon(
-                            LineIcons.angleRight,
-                            color: redBlood,
-                          ),
-                        ),
-                        ListTile(
-                          onTap: () {
-                            showDialog(
-                                context: context,
-                                barrierColor: Colors.transparent,
-                                builder: (BuildContext context) {
-                                  return Diplo();
-                                });
-                          },
-                          leading: Icon(
-                            LineIcons.userGraduate,
-                            color: redBlood,
-                          ),
-                          title: Text(
-                            "Diplôme et cértificat",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: white,
-                                fontWeight: FontWeight.w300),
-                          ),
-                          trailing: Icon(
-                            LineIcons.angleRight,
-                            color: redBlood,
                           ),
                         ),
                         ListTile(
@@ -475,19 +422,6 @@ class _DargleState extends State<Dargle> {
                   ),
                   title: Text(
                     "Masculin",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-                ListTile(
-                  leading: Icon(
-                    LineIcons.birthdayCake,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "17 Janvier 1999",
                     style: TextStyle(
                         fontSize: 20,
                         color: white,
