@@ -18,11 +18,12 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  Color currentColor = dark;
+  Color currentColor = redBlood;
   File? file;
   UploadTask? task;
   int _genre = 0;
 
+  void changeColor(Color color) => setState(() => currentColor = color);
   TextEditingController dateinput = TextEditingController();
 
   String textChange = "Add file";
@@ -34,7 +35,6 @@ class _SettingsState extends State<Settings> {
     super.initState();
   }
 
-  void changeColor(Color color) => setState(() => currentColor = color);
   @override
   Widget build(BuildContext context) {
     final nomDuFichier = file != null ? basename(file!.path) : 'Aucun fichier';
@@ -49,7 +49,7 @@ class _SettingsState extends State<Settings> {
           },
           icon: Icon(
             LineIcons.angleLeft,
-            color: redBlood,
+            color: currentColor,
           ),
         ),
       ),
@@ -84,7 +84,7 @@ class _SettingsState extends State<Settings> {
                 child: ListTile(
                   leading: Icon(
                     LineIcons.palette,
-                    color: redBlood,
+                    color: currentColor,
                   ),
                   title: Text(
                     "Personalisez vos couleurs",
@@ -97,21 +97,22 @@ class _SettingsState extends State<Settings> {
               child: ListTile(
                   leading: Icon(
                     LineIcons.folderPlus,
-                    color: redBlood,
+                    color: currentColor,
                   ),
                   title: Text(
                     "Ajouter un CV",
                     style: TextStyle(color: white),
                   ),
-                  onTap: () async {
-                    await showDialog(
+                  onTap: () {
+                    showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
                             title: Center(
                               child: Text(
                                 "Cirucilum Vitae",
-                                style: TextStyle(fontSize: 20, color: redBlood),
+                                style: TextStyle(
+                                    fontSize: 20, color: currentColor),
                               ),
                             ),
                             backgroundColor: darkSecond,
@@ -152,7 +153,7 @@ class _SettingsState extends State<Settings> {
                                         textChange = 'Save';
                                       });
                                     },
-                                    color: redBlood,
+                                    color: currentColor,
                                   ),
                                 ],
                               ),
@@ -166,7 +167,7 @@ class _SettingsState extends State<Settings> {
               child: ListTile(
                 leading: Icon(
                   LineIcons.edit,
-                  color: redBlood,
+                  color: currentColor,
                 ),
                 title: Text(
                   "Modifier vos informations",
@@ -198,7 +199,7 @@ class _SettingsState extends State<Settings> {
                                       borderRadius: BorderRadius.circular(50),
                                       border: Border.all(
                                         width: 2,
-                                        color: redBlood,
+                                        color: currentColor,
                                       )),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
@@ -233,7 +234,7 @@ class _SettingsState extends State<Settings> {
                                       borderRadius: BorderRadius.circular(50),
                                       border: Border.all(
                                         width: 2,
-                                        color: redBlood,
+                                        color: currentColor,
                                       )),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
@@ -268,7 +269,7 @@ class _SettingsState extends State<Settings> {
                                       borderRadius: BorderRadius.circular(50),
                                       border: Border.all(
                                         width: 2,
-                                        color: redBlood,
+                                        color: currentColor,
                                       )),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
@@ -296,7 +297,7 @@ class _SettingsState extends State<Settings> {
                                         borderRadius: BorderRadius.circular(50),
                                         border: Border.all(
                                           width: 2,
-                                          color: redBlood,
+                                          color: currentColor,
                                         )),
                                     alignment: Alignment.center,
                                     margin: EdgeInsets.symmetric(
@@ -329,7 +330,7 @@ class _SettingsState extends State<Settings> {
                                           color: redBlood),
                                       iconSize: 24,
                                       elevation: 16,
-                                      style: TextStyle(color: redBlood),
+                                      style: TextStyle(color: currentColor),
                                       items: <String>[
                                         'Étudiant',
                                         'Salarié',
@@ -351,7 +352,7 @@ class _SettingsState extends State<Settings> {
                                       borderRadius: BorderRadius.circular(50),
                                       border: Border.all(
                                         width: 2,
-                                        color: redBlood,
+                                        color: currentColor,
                                       )),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -401,7 +402,7 @@ class _SettingsState extends State<Settings> {
                                     side: BorderSide(color: Colors.red),
                                   ),
                                   onPressed: () {},
-                                  color: redBlood,
+                                  color: currentColor,
                                 ),
                               ],
                             ),
@@ -415,7 +416,7 @@ class _SettingsState extends State<Settings> {
               child: ListTile(
                 leading: Icon(
                   LineIcons.userCircle,
-                  color: redBlood,
+                  color: currentColor,
                 ),
                 title: Text(
                   "Modifier vos identifiant",
@@ -447,7 +448,7 @@ class _SettingsState extends State<Settings> {
                                       borderRadius: BorderRadius.circular(50),
                                       border: Border.all(
                                         width: 2,
-                                        color: redBlood,
+                                        color: currentColor,
                                       )),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
@@ -482,7 +483,7 @@ class _SettingsState extends State<Settings> {
                                       borderRadius: BorderRadius.circular(50),
                                       border: Border.all(
                                         width: 2,
-                                        color: redBlood,
+                                        color: currentColor,
                                       )),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
@@ -520,7 +521,7 @@ class _SettingsState extends State<Settings> {
                                     side: BorderSide(color: Colors.red),
                                   ),
                                   onPressed: () {},
-                                  color: redBlood,
+                                  color: currentColor,
                                 ),
                               ],
                             ),
@@ -534,7 +535,7 @@ class _SettingsState extends State<Settings> {
               child: ListTile(
                 leading: Icon(
                   LineIcons.trash,
-                  color: redBlood,
+                  color: currentColor,
                 ),
                 title: Text(
                   "Suprimer votre compte",
@@ -546,7 +547,7 @@ class _SettingsState extends State<Settings> {
               child: ListTile(
                   leading: Icon(
                     LineIcons.alternateSignOut,
-                    color: redBlood,
+                    color: currentColor,
                   ),
                   title: Text(
                     "Se déconecter",

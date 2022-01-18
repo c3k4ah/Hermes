@@ -2,16 +2,18 @@ import 'package:backdrop/backdrop.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hermes/colors.dart';
-import 'package:hermes/views/widget/cardListe.dart';
-
-import 'package:hermes/views/widget/pop_user_info.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 
+import 'package:hermes/colors.dart';
+import 'package:hermes/models/firebaseData.dart';
+import 'package:hermes/views/widget/cardListe.dart';
+import 'package:hermes/views/widget/pop_user_info.dart';
+
 class UserInformation extends StatefulWidget {
   final User? user;
-  const UserInformation({this.user});
+
+  const UserInformation({Key? key, this.user}) : super(key: key);
   //const UserInformation({Key? key}) : super(key: key);
 
   @override
@@ -172,7 +174,83 @@ class _UserInformationState extends State<UserInformation> {
                                 context: context,
                                 barrierColor: Colors.transparent,
                                 builder: (BuildContext context) {
-                                  return CV();
+                                  return AlertDialog(
+                                    backgroundColor: darkSecond,
+                                    elevation: 0,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    content: Container(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          MaterialButton(
+                                            onPressed: () {},
+                                            color: redBlood,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  "Download",
+                                                  style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: white,
+                                                  ),
+                                                ),
+                                                Icon(
+                                                  LineIcons.download,
+                                                  color: white,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          MaterialButton(
+                                            onPressed: () async {
+                                              final url =
+                                                  'files/CV-DOMINICK.pdf';
+                                              final file =
+                                                  await FirebaseData.loading(
+                                                      url);
+
+                                              // ignore: unnecessary_null_comparison
+                                              if (file == null) return;
+
+                                              //openPDF(context, file);
+                                            },
+                                            color: redBlood,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  "Visualize",
+                                                  style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: white,
+                                                  ),
+                                                ),
+                                                Icon(
+                                                  LineIcons.eye,
+                                                  color: white,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
                                 });
                           },
                           leading: Icon(
@@ -319,233 +397,11 @@ class _UserInformationState extends State<UserInformation> {
       ),
     );
   }
-}
 
-class Dargle extends StatefulWidget {
-  const Dargle({Key? key}) : super(key: key);
-
-  @override
-  State<Dargle> createState() => _DargleState();
-}
-
-class _DargleState extends State<Dargle> {
-  @override
-  Widget build(BuildContext context) {
-    return DraggableScrollableSheet(
-      minChildSize: 0.1,
-      builder: (BuildContext context, ScrollController scrollController) {
-        return Container(
-          //margin: EdgeInsets.only(top: 8),
-          decoration: BoxDecoration(
-              color: dark,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(40),
-                topRight: Radius.circular(40),
-              )),
-          //alignment: Alignment.bottomCenter,
-          child: SingleChildScrollView(
-            controller: scrollController,
-            child: Column(
-              children: [
-                Container(
-                  height: 50,
-                  width: Get.width,
-                  decoration: BoxDecoration(
-                      color: darkSecond,
-                      borderRadius: BorderRadius.circular(50)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(
-                        LineIcons.angleUp,
-                        color: redBlood,
-                      ),
-                      Center(
-                        child: Text(
-                          "Plus d'information",
-                          style: TextStyle(
-                              fontSize: 17,
-                              color: white,
-                              fontWeight: FontWeight.normal),
-                        ),
-                      ),
-                      Icon(
-                        LineIcons.angleUp,
-                        color: redBlood,
-                      ),
-                    ],
-                  ),
-                ),
-                ListTile(
-                  leading: Icon(
-                    LineIcons.envelope,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "dominick17@gmail.com",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-                ListTile(
-                  leading: Icon(
-                    LineIcons.phone,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "034 44 599 16",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-                ListTile(
-                  leading: Icon(
-                    LineIcons.campground,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "Antananrive, Madagascar",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-                ListTile(
-                  leading: Icon(
-                    LineIcons.male,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "Masculin",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-                ListTile(
-                  leading: Icon(
-                    LineIcons.addressCard,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "Étudiant",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        barrierColor: Colors.transparent,
-                        builder: (BuildContext context) {
-                          return Expe();
-                        });
-                  },
-                  leading: Icon(
-                    LineIcons.toolbox,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "Expérience",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                  trailing: Icon(
-                    LineIcons.angleRight,
-                    color: redBlood,
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        barrierColor: Colors.transparent,
-                        builder: (BuildContext context) {
-                          return Diplo();
-                        });
-                  },
-                  leading: Icon(
-                    LineIcons.userGraduate,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "Diplôme et cértificat",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                  trailing: Icon(
-                    LineIcons.angleRight,
-                    color: redBlood,
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        barrierColor: Colors.transparent,
-                        builder: (BuildContext context) {
-                          return CV();
-                        });
-                  },
-                  leading: Icon(
-                    LineIcons.folderOpen,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "CV",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                  trailing: Icon(
-                    LineIcons.angleRight,
-                    color: redBlood,
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        barrierColor: Colors.transparent,
-                        builder: (BuildContext context) {
-                          return Projet();
-                        });
-                  },
-                  leading: Icon(
-                    LineIcons.hardHat,
-                    color: redBlood,
-                  ),
-                  title: Text(
-                    "Compte pour les projets",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: white,
-                        fontWeight: FontWeight.w300),
-                  ),
-                  trailing: Icon(
-                    LineIcons.angleRight,
-                    color: redBlood,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
+  /*void openPDF(BuildContext context, File file) => Navigator.of(context).push(
+        MaterialPageRoute(
+            builder: (context) => PDFViewerPage(
+                  file: file,
+                )),
+      );*/
 }

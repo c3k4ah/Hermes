@@ -18,7 +18,7 @@ typedef PickerItemBuilder = Widget Function(
 
 // Provide a list of colors for block color picker.
 const List<Color> _defaultColors = [
-  dark,
+  redBlood,
   Colors.red,
   Colors.pink,
   Colors.purple,
